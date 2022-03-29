@@ -1,6 +1,12 @@
 import UIKit
 
 extension UIViewController {
+     @objc func doRefresh(_ sender: Any){
+        self.tableView.reloadData()
+        (sender as! UIRefreshControl).endRefreshing()
+        print("Tableview reloadData done")
+    }
+    
     /// Create a tableview as subview of the original view, with same size of self.view.
     /// Datasource and delegate will be set automatically
     /// Autolayout do adapt to different screen orientations
