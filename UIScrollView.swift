@@ -4,8 +4,8 @@ extension UIViewController {
     func createUIScrollView(){
         let sv = UIScrollView()
         sv.backgroundColor =  UIColor.systemBackground
+        self.view.addSubview(sv)
         sv.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(sv)
         let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             sv.topAnchor.constraint(equalTo:  guide.topAnchor), // Top anchor should follow safeAreaLayoutGuide
