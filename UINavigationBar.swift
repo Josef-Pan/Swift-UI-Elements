@@ -30,4 +30,13 @@ extension UIViewController {
         return navbar
     }
     
+    func customiseNavbar( _ navbar: UINavigationBar, font: UIFont) {
+        let style = UINavigationBarAppearance()
+        style.buttonAppearance.normal.titleTextAttributes = [.font: font, .foregroundColor: UIColor.white ]
+        style.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                     NSAttributedString.Key.font: font ]
+        style.backgroundColor = .black
+        navbar.standardAppearance = style
+    }
+    
 }
