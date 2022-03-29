@@ -1,21 +1,17 @@
 import UIKit
 
 extension UIViewController {
-    func createUIScrollView(parent view: UIView,
-                         top: NSLayoutYAxisAnchor,
-                         bottom: NSLayoutYAxisAnchor,
-                         leading:NSLayoutXAxisAnchor,
-                         trailing: NSLayoutXAxisAnchor,
-                         backgroundColor:UIColor = UIColor.systemBackground) ->UIScrollView{
+    func createUIScrollView(){
         let sv = UIScrollView()
-        sv.backgroundColor = backgroundColor
+        sv.backgroundColor =  UIColor.systemBackground
         sv.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(sv)
+        let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            sv.topAnchor.constraint(equalTo:  top),
-            sv.bottomAnchor.constraint(equalTo: bottom),
-            sv.leadingAnchor.constraint(equalTo: leading),
-            sv.trailingAnchor.constraint(equalTo: trailing),
+            sv.topAnchor.constraint(equalTo:  guide.topAnchor), // Top anchor should follow safeAreaLayoutGuide
+            sv.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            sv.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            sv.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
         return sv
     }
