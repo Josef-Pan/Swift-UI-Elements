@@ -41,10 +41,7 @@ class InvoiceCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(label_id)
-        addSubview(label_desc)
-        addSubview(label_quantity)
-        addSubview(label_cost)
+        [label_id, label_desc, label_quantity, label_cost].forEach { addSubview($0) }
         setupConstraints(label: label_id, leadingAnchor: self.leadingAnchor) // 20% of cell width
         setupConstraints(label: label_desc, leadingAnchor: label_id.trailingAnchor, width_multiplier: 0.4) // 40% 
         setupConstraints(label: label_quantity, leadingAnchor: label_desc.trailingAnchor) // 20% of cell width
