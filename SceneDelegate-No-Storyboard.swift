@@ -12,10 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 🔴 Before doing this, remove 2 items from info.plist
         // 1. Main storyboard file base name
         // 2. Application Scene Manifest -> ... -> Storyboard Name
+        // Use this code to embed into let UINavigationController, vc = UINavigationController(rootViewController: ViewController())
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene )
         let vc = ViewController() // This the first ViewController
-        // let vc = UINavigationController(rootViewController: ViewController())
         self.window!.rootViewController = vc
         self.window!.makeKeyAndVisible()
     }
